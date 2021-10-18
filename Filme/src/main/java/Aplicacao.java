@@ -26,8 +26,7 @@ public class Aplicacao {
         apareceMais(atrizes);
         apareceMais(intervaloDeIdade(20, 30, atrizes));
         ganhouMaisDeUmaVez(todos);
-        verificaAtor(todos, "Tom Hanks");
-        verificaAtor(todos, "Katharine Hepburn");
+        verificaAtor(todos);
 
     }
 
@@ -37,7 +36,10 @@ public class Aplicacao {
                 .ifPresent(ator -> System.out.println("Ator mais jovem a ganhar um oscar: " + ator.getNome() + "\n"));
     }
 
-    private static void verificaAtor(List<Ator> lista, String nome){
+    private static void verificaAtor(List<Ator> lista){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Qual ator deseja pesquisar: ");
+        String nome = sc.nextLine();
         System.out.println(nome + " ganhou " + lista.stream()
                 .filter(p -> p.getNome().equals(nome))
                 .count() +
